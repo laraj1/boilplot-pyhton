@@ -20,8 +20,8 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/YOUR_USERNAME/waspplot-python"
-Repository = "https://github.com/YOUR_USERNAME/waspplot-python"
+Homepage = "https://github.com/laraj1/boilplot-python"
+Repository = "https://github.com/laraj1/boilplot-python"
 
 [tool.setuptools.packages.find]
 where = ["src"]
