@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "boilplot"
+version = "0.1.0"
+description = "Specialised plotting for single-cell expression data (or other zero-inflated data)"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+    { name = "Lara Jerman" },
+]
+dependencies = [
+    "numpy",
+    "pandas",
+    "plotnine",
+    "mizani",
+    "anndata",
+]
+
+[project.urls]
+Homepage = "https://github.com/YOUR_USERNAME/waspplot-python"
+Repository = "https://github.com/YOUR_USERNAME/waspplot-python"
+
+[tool.setuptools.packages.find]
+where = ["src"]
