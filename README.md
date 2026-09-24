@@ -33,7 +33,7 @@ Boil plots visually separate the two, resulting in more faithful and interpretab
 The package can be installed directly from GitHub:
 
 ```         
-pip install git+https://github.com/laraj1/boilplot-python.git
+pip install git+https://github.com/laraj1/boilplot-pyhton/
 ```
 
 The required dependencies are installed automatically.
@@ -59,20 +59,20 @@ p.show()
 
 ### `boil_plot()`
 
-| Parameter | Type | Default | Description |
+| Parameter        | Type                 | Default | Description                                                                                                |
 |------------------|------------------|------------------|------------------|
-| `adata` | `AnnData` | — | AnnData object containing expression data. |
-| `genes` | `str` or `list[str]` | — | Gene or genes to plot. |
-| `category_col` | `str` | — | Column in `adata.obs` containing the categories to compare. |
-| `palette` | `dict` or `None` | `None` | Mapping of category names to colours. If `None`, colours are generated automatically. |
-| `category_order` | `list` or `None` | `None` | Optional explicit order of categories on the x-axis. |
-| `min_nonzero` | `int` | `10` | Minimum number of non-zero observations required for a violin to be shown for a gene/category combination. |
-| `layer` | `str` or `None` | `None` | AnnData layer from which to extract expression. If `None`, `adata.X` is used. |
-| `use_raw` | `bool` | `False` | If `True`, expression is extracted from `adata.raw`. |
-| `title` | `str` or `None` | `None` | Optional plot title. |
-| `point_size` | `float` | `0.7` | Size of jittered points. |
-| `point_alpha` | `float` | `0.6` | Transparency of jittered points. |
-| `jitter_width` | `float` | `0.1` | Horizontal jitter applied to strip plot points. |
+| `adata`          | `AnnData`            | ---     | AnnData object containing expression data.                                                                 |
+| `genes`          | `str` or `list[str]` | ---     | Gene or genes to plot.                                                                                     |
+| `category_col`   | `str`                | ---     | Column in `adata.obs` containing the categories to compare.                                                |
+| `palette`        | `dict` or `None`     | `None`  | Mapping of category names to colours. If `None`, colours are generated automatically.                      |
+| `category_order` | `list` or `None`     | `None`  | Optional explicit order of categories on the x-axis.                                                       |
+| `min_nonzero`    | `int`                | `10`    | Minimum number of non-zero observations required for a violin to be shown for a gene/category combination. |
+| `layer`          | `str` or `None`      | `None`  | AnnData layer from which to extract expression. If `None`, `adata.X` is used.                              |
+| `use_raw`        | `bool`               | `False` | If `True`, expression is extracted from `adata.raw`.                                                       |
+| `title`          | `str` or `None`      | `None`  | Optional plot title.                                                                                       |
+| `point_size`     | `float`              | `0.7`   | Size of jittered points.                                                                                   |
+| `point_alpha`    | `float`              | `0.6`   | Transparency of jittered points.                                                                           |
+| `jitter_width`   | `float`              | `0.1`   | Horizontal jitter applied to strip plot points.                                                            |
 
 ### Returns
 
@@ -82,12 +82,12 @@ A plotnine `ggplot` object containing the resulting visualisation.
 
 ### Visualisation components
 
-| Component | Represents |
+| Component        | Represents                                                 |
 |------------------------------------|------------------------------------|
-| Violin | Distribution of non-zero expression values. |
-| Jittered points | Individual non-zero observations. |
-| Grey bar | Full range corresponding to 100% of observations. |
-| Coloured bar | Proportion of observations with non-zero expression. |
+| Violin           | Distribution of non-zero expression values.                |
+| Jittered points  | Individual non-zero observations.                          |
+| Grey bar         | Full range corresponding to 100% of observations.          |
+| Coloured bar     | Proportion of observations with non-zero expression.       |
 | Percentage label | Exact proportion of observations with non-zero expression. |
 
 ## Authors
