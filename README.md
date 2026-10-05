@@ -55,24 +55,75 @@ p = boil_plot(
 p.show()
 ```
 
+### Further customization
+
+The implementation supports further customization by adding a title, specifying the order of categories (with any categories not listed excluded from the plot), specifying a colour palette, ...
+
+```         
+p = boil_plot(
+    adata,
+    genes=["GZMA", "NKG7", "PRF1"],
+    category_col="louvain",
+    title='NK cytotoxicity markers',
+    category_order=['B cells', 'CD4 T cells', 'CD8 T cells', 'NK cells', 'CD14+ Monocytes'],
+    palette={
+        'B cells': '#bce784',
+        'CD4 T cells': '#5dd39e',
+        'CD8 T cells': '#80ced7',
+        'NK cells': '#348aa7',
+        'CD14+ Monocytes': '#525174'
+    }
+)
+p.show()
+```
+
+The general appearance of the plot can be further modified via the Plotnine package functionality, e.g.:
+
+```         
+p = (
+    p
+    + theme_minimal()
+    + theme(
+        # Overall text
+        axis_title=element_text(size=14),
+        axis_text=element_text(size=11),
+        
+        # Facet/panel labels
+        strip_text=element_text(size=14, weight="bold"),
+        
+        # Legend
+        legend_title=element_text(size=12),
+        legend_text=element_text(size=11),
+        
+        # Plot title
+        plot_title=element_text(size=16, weight="bold"),
+    )
+    + labs(
+        x="Cell type",
+        fill="Cell type",
+    )
+)
+p.show()
+```
+
 ## API
 
 ### `boil_plot()`
 
-| Parameter        | Type                 | Default | Description                                                                                                |
+| Parameter        | Type                 | Default | Description                                                                                                                |
 |------------------|------------------|------------------|------------------|
-| `adata`          | `AnnData`            | ---     | AnnData object containing expression data.                                                                 |
-| `genes`          | `str` or `list[str]` | ---     | Gene or genes to plot.                                                                                     |
-| `category_col`   | `str`                | ---     | Column in `adata.obs` containing the categories to compare.                                                |
-| `palette`        | `dict` or `None`     | `None`  | Mapping of category names to colours. If `None`, colours are generated automatically.                      |
-| `category_order` | `list` or `None`     | `None`  | Optional explicit order of categories on the x-axis.                                                       |
-| `min_nonzero`    | `int`                | `10`    | Minimum number of non-zero observations required for a violin to be shown for a gene/category combination. |
-| `layer`          | `str` or `None`      | `None`  | AnnData layer from which to extract expression. If `None`, `adata.X` is used.                              |
-| `use_raw`        | `bool`               | `False` | If `True`, expression is extracted from `adata.raw`.                                                       |
-| `title`          | `str` or `None`      | `None`  | Optional plot title.                                                                                       |
-| `point_size`     | `float`              | `0.7`   | Size of jittered points.                                                                                   |
-| `point_alpha`    | `float`              | `0.6`   | Transparency of jittered points.                                                                           |
-| `jitter_width`   | `float`              | `0.1`   | Horizontal jitter applied to strip plot points.                                                            |
+| `adata`          | `AnnData`            | ---     | AnnData object containing expression data.                                                                                 |
+| `genes`          | `str` or `list[str]` | ---     | Gene or genes to plot.                                                                                                     |
+| `category_col`   | `str`                | ---     | Column in `adata.obs` containing the categories to compare.                                                                |
+| `palette`        | `dict` or `None`     | `None`  | Mapping of category names to colours. If `None`, colours are generated automatically.                                      |
+| `category_order` | `list` or `None`     | `None`  | Optional explicit order of categories on the x-axis. Any categories missing from the order will be excluded from the plot. |
+| `min_nonzero`    | `int`                | `10`    | Minimum number of non-zero observations required for a violin to be shown for a gene/category combination.                 |
+| `layer`          | `str` or `None`      | `None`  | AnnData layer from which to extract expression. If `None`, `adata.X` is used.                                              |
+| `use_raw`        | `bool`               | `False` | If `True`, expression is extracted from `adata.raw`.                                                                       |
+| `title`          | `str` or `None`      | `None`  | Optional plot title.                                                                                                       |
+| `point_size`     | `float`              | `0.7`   | Size of jittered points.                                                                                                   |
+| `point_alpha`    | `float`              | `0.6`   | Transparency of jittered points.                                                                                           |
+| `jitter_width`   | `float`              | `0.1`   | Horizontal jitter applied to strip plot points.                                                                            |
 
 ### Returns
 
