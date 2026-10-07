@@ -33,7 +33,7 @@ Boil plots visually separate the two, resulting in more faithful and interpretab
 The package can be installed directly from GitHub:
 
 ```         
-pip install git+https://github.com/laraj1/boilplot-pyhton/
+pip install git+https://github.com/laraj1/boilplot-python/
 ```
 
 The required dependencies are installed automatically.
