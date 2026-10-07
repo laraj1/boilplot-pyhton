@@ -50,7 +50,6 @@ p = boil_plot(
     adata,
     genes=["CST3", "NKG7", "PPBP"],
     category_col="louvain",
-    min_nonzero=10,
 )
 p.show()
 ```
