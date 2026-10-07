@@ -4,7 +4,7 @@
 
 A Python utility for faithful and interpretable visualisations of zero-inflated distributions (typical for single-cell gene expressions) stored in an [**`AnnData`**](https://anndata.readthedocs.io/) object.
 
-(An R implementation is currently in development.)
+[R implementation now available here.](https://github.com/laraj1/boilplot-r)
 
 ## Description
 
@@ -80,6 +80,8 @@ p.show()
 The general appearance of the plot can be further modified via the Plotnine package functionality, e.g.:
 
 ```         
+from plotnine import *
+
 p = (
     p
     + theme_minimal()
@@ -89,14 +91,14 @@ p = (
         axis_text=element_text(size=11),
         
         # Facet/panel labels
-        strip_text=element_text(size=14, weight="bold"),
+        strip_text=element_text(size=14,),
         
         # Legend
         legend_title=element_text(size=12),
         legend_text=element_text(size=11),
         
         # Plot title
-        plot_title=element_text(size=16, weight="bold"),
+        plot_title=element_text(size=16,),
     )
     + labs(
         x="Cell type",
